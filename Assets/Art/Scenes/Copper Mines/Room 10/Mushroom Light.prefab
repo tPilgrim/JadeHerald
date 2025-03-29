@@ -1,0 +1,1133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1596858612283518787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858612283518812}
+  - component: {fileID: 1596858612283518813}
+  m_Layer: 0
+  m_Name: Mushroom Light (74)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858612283518812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612283518787}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.574, y: -1.102, z: 0}
+  m_LocalScale: {x: 0.28, y: 0.16, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858612283518813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612283518787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858612457086001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858612457086002}
+  - component: {fileID: 1596858612457086003}
+  m_Layer: 0
+  m_Name: Close Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858612457086002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612457086001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.228, y: -3.11, z: 0}
+  m_LocalScale: {x: 0.56, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858613716412844}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858612457086003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612457086001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 4b84cc56adacc599e3aabc9b
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 24.753033, y: 1.715122, z: 0}
+  - {x: 24.084581, y: 2.6810431, z: 0}
+  - {x: 18.658985, y: 0.61164063, z: 0}
+  - {x: 16.902338, y: 1.6094065, z: 0}
+  - {x: 12.397343, y: 1.7920295, z: 0}
+  - {x: 10.146395, y: 2.4680462, z: 0}
+  - {x: 8.065869, y: 2.765571, z: 0}
+  - {x: 6.854618, y: 1.9063902, z: 0}
+  - {x: 4.8923903, y: 1.8385601, z: 0}
+  - {x: 3.7901516, y: 2.607301, z: 0}
+  - {x: 1.9510247, y: 1.8637347, z: 0}
+  - {x: -0.39460623, y: 0.69680214, z: 0}
+  - {x: -1.83812, y: 1.0412192, z: 0}
+  - {x: -2.3807964, y: 2.2365499, z: 0}
+  - {x: -5.0819616, y: 2.5749183, z: 0}
+  - {x: -6.344514, y: 2.3187025, z: 0}
+  - {x: -6.1332817, y: 1.0049471, z: 0}
+  - {x: -6.7220225, y: -0.9182683, z: 0}
+  - {x: -6.501245, y: -2.7826095, z: 0}
+  - {x: -2.5157447, y: -3.022883, z: 0}
+  - {x: -0.19599165, y: -2.8810086, z: 0}
+  - {x: 0.9303752, y: -2.436415, z: 0}
+  - {x: 2.1858892, y: -2.7257514, z: 0}
+  - {x: 5.6440187, y: -2.80507, z: 0}
+  - {x: 5.80276, y: -2.4538786, z: 0}
+  - {x: 6.7787275, y: -2.2782834, z: 0}
+  - {x: 7.1491237, y: -2.80507, z: 0}
+  - {x: 7.872268, y: -3.331859, z: 0}
+  - {x: 11.702205, y: -3.3892865, z: 0}
+  - {x: 12.006302, y: -3.0259929, z: 0}
+  - {x: 16.713732, y: -3.1757927, z: 0}
+  - {x: 16.779478, y: -3.5930634, z: 0}
+  - {x: 24.937635, y: -3.6937559, z: 0}
+  - {x: 25.4114, y: -3.1654358, z: 0}
+  - {x: 26.931139, y: -3.544448, z: 0}
+  - {x: 31.57034, y: -3.6018777, z: 0}
+  - {x: 31.828758, y: -3.0276167, z: 0}
+  - {x: 36, y: -3.6957977, z: 0}
+  - {x: 36, y: 1.7462087, z: 0}
+  - {x: 35.2366, y: 2.6582391, z: 0}
+  - {x: 33.770832, y: 1.5638025, z: 0}
+  - {x: 32.854733, y: 2.4530323, z: 0}
+  - {x: 31.706549, y: 1.9514155, z: 0}
+  - {x: 30.619442, y: 2.749442, z: 0}
+  - {x: 29.043747, y: 2.1338215, z: 0}
+  - {x: 27.871136, y: 2.6126375, z: 0}
+  - {x: 26.881746, y: 1.5638025, z: 0}
+--- !u!1 &1596858612521496194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858612521496195}
+  - component: {fileID: 1596858612521496220}
+  m_Layer: 0
+  m_Name: Mushroom Light (76)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858612521496195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612521496194}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.945, y: -0.94400024, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.22, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858612521496220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612521496194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858612616776434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858612616776435}
+  - component: {fileID: 1596858612616775948}
+  m_Layer: 0
+  m_Name: Mushroom Light (73)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858612616776435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612616776434}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.468, y: -0.981, z: 0}
+  m_LocalScale: {x: 0.19, y: 0.13, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858612616775948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612616776434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858612871702179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858612871702204}
+  - component: {fileID: 1596858612871702205}
+  m_Layer: 0
+  m_Name: Mushroom Light (68)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858612871702204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612871702179}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.824, y: -0.7069998, z: 0}
+  m_LocalScale: {x: 0.23, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858612871702205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858612871702179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858613456193457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858613456193458}
+  - component: {fileID: 1596858613456193459}
+  m_Layer: 0
+  m_Name: Mushroom Light (83)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858613456193458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613456193457}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.474, y: -1.145, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858613456193459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613456193457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858613716412819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858613716412844}
+  - component: {fileID: 1596858613716412845}
+  m_Layer: 0
+  m_Name: Mushroom Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858613716412844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613716412819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1596858614013018549}
+  - {fileID: 1596858612457086002}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858613716412845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613716412819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.8
+  m_Color: {r: 0, g: 0.41666675, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 1
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.25
+  m_PointLightOuterRadius: 1.25
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 12, y: -1.5, z: 0}
+  - {x: 11.890648, y: -1.0215805, z: 0}
+  - {x: 11.501014, y: -0.6932831, z: 0}
+  - {x: 11.21947, y: -0.6580901, z: 0}
+  - {x: 11.011778, y: -1.2544618, z: 0}
+  - {x: 10.743158, y: -1.1850996, z: 0}
+  - {x: 10.434045, y: -1.3243232, z: 0}
+  - {x: 10.135637, y: -1.2296083, z: 0}
+  - {x: 10.099551, y: -0.89357805, z: 0}
+  - {x: 9.776627, y: -0.73135376, z: 0}
+  - {x: 9.6100445, y: -0.79759216, z: 0}
+  - {x: 9.52876, y: -0.9911518, z: 0}
+  - {x: 9.446714, y: -1.2724288, z: 0}
+  - {x: 8.878301, y: -1.2789223, z: 0}
+  - {x: 8.642504, y: -0.85570097, z: 0}
+  - {x: 7.581149, y: -0.9908962, z: 0}
+  - {x: 7.3575487, y: -1.4781907, z: 0}
+  - {x: 6.5155916, y: -1.413661, z: 0}
+  - {x: 5.9503713, y: -1.5016961, z: 0}
+  - {x: 5.5305934, y: -1.5949109, z: 0}
+  - {x: 5.516012, y: -1.3437636, z: 0}
+  - {x: 4.459871, y: -1.2292912, z: 0}
+  - {x: 4.300087, y: -1.4751172, z: 0}
+  - {x: 3.8852544, y: -1.1893439, z: 0}
+  - {x: 3.5226598, y: -1.450535, z: 0}
+  - {x: 2.422584, y: -1.4751167, z: 0}
+  - {x: 2.287379, y: -1.3153291, z: 0}
+  - {x: 1.700466, y: -1.3122578, z: 0}
+  - {x: 1.4884403, y: -1.462827, z: 0}
+  - {x: -1.5499247, y: -1.5129163, z: 0}
+  - {x: -1.6631227, y: -1.352963, z: 0}
+  - {x: -2.032246, y: -1.1930094, z: 0}
+  - {x: -2.1528265, y: -1.4169443, z: 0}
+  - {x: -3.5840878, y: -1.4076648, z: 0}
+  - {x: -5.928285, y: -1.6126862, z: 0}
+  - {x: -6.141043, y: -1.4502165, z: 0}
+  - {x: -6.8334727, y: -1.6320276, z: 0}
+  - {x: -8.505563, y: -1.3332455, z: 0}
+  - {x: -9.568683, y: -1.3475413, z: 0}
+  - {x: -9.938242, y: -1.6777661, z: 0}
+  - {x: -10.147865, y: -1.4976354, z: 0}
+  - {x: -10.771034, y: -1.4266417, z: 0}
+  - {x: -11.058953, y: -1.0401199, z: 0}
+  - {x: -11.498751, y: -1.3726904, z: 0}
+  - {x: -12, y: -1.24, z: 0}
+  - {x: -12, y: -2.632611, z: 0}
+  - {x: -10.821421, y: -3.115352, z: 0}
+  - {x: -10.345976, y: -3.3792653, z: 0}
+  - {x: -8.670021, y: -3.6996126, z: 0}
+  - {x: -3.527178, y: -3.026569, z: 0}
+  - {x: -3.261801, y: -3.36034, z: 0}
+  - {x: -2.7231374, y: -3.2972498, z: 0}
+  - {x: -0.8788331, y: -3.049154, z: 0}
+  - {x: -0.054747835, y: -3.3689399, z: 0}
+  - {x: 0.4590305, y: -3.6961515, z: 0}
+  - {x: 0.96617174, y: -3.5816314, z: 0}
+  - {x: 1.0482099, y: -3.1471329, z: 0}
+  - {x: 2.7626286, y: -3.2415977, z: 0}
+  - {x: 3.4276638, y: -3.356636, z: 0}
+  - {x: 4.890886, y: -3.1759958, z: 0}
+  - {x: 5.6352873, y: -2.6541457, z: 0}
+  - {x: 7.2186866, y: -3.1884942, z: 0}
+  - {x: 7.6413517, y: -2.4956539, z: 0}
+  - {x: 8.416328, y: -2.4553237, z: 0}
+  - {x: 9.229951, y: -3.0829754, z: 0}
+  - {x: 10.2496195, y: -3.257709, z: 0}
+  - {x: 11.233786, y: -3.0411332, z: 0}
+  - {x: 12, y: -2.75, z: 0}
+--- !u!1 &1596858613812901887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858613812901880}
+  - component: {fileID: 1596858613812901881}
+  m_Layer: 0
+  m_Name: Mushroom Light (78)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858613812901880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613812901887}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.857, y: -0.24399996, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858613812901881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613812901887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858613955719772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858613955719773}
+  - component: {fileID: 1596858613955719774}
+  m_Layer: 0
+  m_Name: Mushroom Light (70)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858613955719773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613955719772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.688, y: -1.1100001, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.09, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858613955719774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858613955719772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858614013018548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858614013018549}
+  m_Layer: 0
+  m_Name: Far Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858614013018549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614013018548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1596858612871702204}
+  - {fileID: 1596858614041130642}
+  - {fileID: 1596858613955719773}
+  - {fileID: 1596858612616776435}
+  - {fileID: 1596858612283518812}
+  - {fileID: 1596858612521496195}
+  - {fileID: 1596858614170926883}
+  - {fileID: 1596858613812901880}
+  - {fileID: 1596858614224117268}
+  - {fileID: 1596858614304108641}
+  - {fileID: 1596858613456193458}
+  m_Father: {fileID: 1596858613716412844}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596858614041130641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858614041130642}
+  - component: {fileID: 1596858614041130643}
+  m_Layer: 0
+  m_Name: Mushroom Light (69)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858614041130642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614041130641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.433, y: -0.27400017, z: 0}
+  m_LocalScale: {x: 0.32, y: 0.3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858614041130643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614041130641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858614170926882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858614170926883}
+  - component: {fileID: 1596858614170926908}
+  m_Layer: 0
+  m_Name: Mushroom Light (77)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858614170926883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614170926882}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.751, y: -0.89400005, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858614170926908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614170926882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858614224117275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858614224117268}
+  - component: {fileID: 1596858614224117269}
+  m_Layer: 0
+  m_Name: Mushroom Light (79)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858614224117268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614224117275}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.21, y: -0.572, z: 0}
+  m_LocalScale: {x: 0.27, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858614224117269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614224117275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}
+--- !u!1 &1596858614304108640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596858614304108641}
+  - component: {fileID: 1596858614304108642}
+  m_Layer: 0
+  m_Name: Mushroom Light (81)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596858614304108641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614304108640}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.429, y: -0.8909998, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1596858614013018549}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596858614304108642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596858614304108640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 0
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.875
+  m_Color: {r: 0, g: 0.41568628, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 97e65490
+  m_LightCookieSprite: {fileID: 21300000, guid: c101c189ecd37a04cbdf75b8f6e17fe3,
+    type: 3}
+  m_UseNormalMap: 0
+  m_LightOrder: 13
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 193
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 0.68
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 20
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 3
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.12394714, y: -0.3561194, z: 0}
+  - {x: 0.40567207, y: -0.38675618, z: 0}
+  - {x: 0.9447231, y: -0.25801873, z: 0}
+  - {x: 0.6803551, y: 0.09393644, z: 0}
+  - {x: 0.22531891, y: 0.20242858, z: 0}
+  - {x: -0.29725838, y: 0.1239481, z: 0}
+  - {x: -0.57533264, y: -0.17747498, z: 0}

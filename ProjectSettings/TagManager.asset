@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Enemy
+  - Attack
+  - Point
+  - Sheild
+  - Spikes
+  - PlayerCollider
+  - UI
+  - Rail
+  - Object
+  - Enemy1
+  - Enemy2
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - Attack
+  - Enemy
+  - Terrain
+  - Player
+  - Dead
+  - Projectile
+  - Particles
+  - Confiner
+  - Rail
+  - Player Confiner
+  - Object
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Lit Background
+    uniqueID: 2421483159
+    locked: 0
+  - name: Far Background
+    uniqueID: 1456243787
+    locked: 0
+  - name: Close Background
+    uniqueID: 2205513969
+    locked: 0
+  - name: Glow Background
+    uniqueID: 658369941
+    locked: 0
+  - name: Crimson
+    uniqueID: 2560122845
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3529227959
+    locked: 0
+  - name: Attack
+    uniqueID: 2579868845
+    locked: 0
+  - name: Terrain
+    uniqueID: 4287399647
+    locked: 0
+  - name: Glow
+    uniqueID: 2612832995
+    locked: 0
+  - name: UI
+    uniqueID: 3505505591
+    locked: 0
