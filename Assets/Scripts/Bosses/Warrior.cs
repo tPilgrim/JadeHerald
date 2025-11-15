@@ -36,7 +36,7 @@ public class Warrior : MonoBehaviour
     public float JumpHeight;
     private bool JumpDirection;
     private int WhichAttack;
-    private int PrevAttack = -1;
+    //private int PrevAttack = -1;
     public GameObject[] AttackHitbox;
     public GameObject AttackPoint;
 
@@ -92,7 +92,10 @@ public class Warrior : MonoBehaviour
                 SpellCooldown();
                 Follow();
                 Turn();
-                Behaviour();
+                if (IsMelee)
+                {
+                    ChooseAttack(WhichAttack);
+                }
             }
         }
         else
@@ -173,10 +176,12 @@ public class Warrior : MonoBehaviour
     {
         if(ShouldJump == true)
         {
-            JumpRand = Random.Range(1, 10);
+            JumpRand = Random.Range(1, 11);
+
             if(1 <= JumpRand && JumpRand <= 4)
             {
                 WhichAttack = 2;
+                ExecuteAttack();
             }
         }
     }
@@ -196,6 +201,7 @@ public class Warrior : MonoBehaviour
         else
         {
             Cooldown = false;
+            ChooseAttack(WhichAttack);
         }
     }
 
@@ -274,50 +280,13 @@ public class Warrior : MonoBehaviour
         }
     }
 
-    void Behaviour()
+    void ChooseAttack(int PrevAttack)
     {
-        if(IsAttacking == false)
+        if(!IsAttacking)
         {
-            Randomizer = Random.Range(1, 100);
-
-            if (IsMelee == true)
+            do
             {
-                if (Randomizer >= 1 && Randomizer <= 35)
-                {
-                    WhichAttack = 1;
-                }
-                else if (Randomizer >= 36 && Randomizer <= 60)
-                {
-                    WhichAttack = 3;
-                }
-                else if (Randomizer >= 61 && Randomizer <= 80)
-                {
-                    WhichAttack = 5;
-                }
-                else if (Randomizer >= 81 && Randomizer <= 100)
-                {
-                    WhichAttack = 6;
-                }
-            }
-            else
-            {
-                if(Cooldown == false)
-                {
-                    if (Randomizer >= 1 && Randomizer <= 60)
-                    {
-                        WhichAttack = 4;
-                    }
-                    else if (Randomizer >= 61 && Randomizer <= 100)
-                    {
-                        WhichAttack = 7;
-                    }
-                }
-            }
-
-            if (WhichAttack == PrevAttack)
-            {
-                //WhichAttack++;
-                Randomizer = Random.Range(1, 100);
+                Randomizer = Random.Range(1, 101);
 
                 if (IsMelee == true)
                 {
@@ -329,36 +298,44 @@ public class Warrior : MonoBehaviour
                     {
                         WhichAttack = 3;
                     }
-                    else if (Randomizer >= 61 && Randomizer <= 75)
+                    else if (Randomizer >= 61 && Randomizer <= 80)
                     {
                         WhichAttack = 5;
                     }
-                    else if (Randomizer >= 76 && Randomizer <= 100)
+                    else if (Randomizer >= 81 && Randomizer <= 100)
                     {
                         WhichAttack = 6;
                     }
                 }
                 else
                 {
-                    if (Randomizer >= 1 && Randomizer <= 50)
+                    if (Randomizer >= 1 && Randomizer <= 60)
                     {
                         WhichAttack = 4;
                     }
-                    else if (Randomizer >= 51 && Randomizer <= 100)
+                    else if (Randomizer >= 61 && Randomizer <= 100)
                     {
                         WhichAttack = 7;
                     }
                 }
-            }
+            } while (WhichAttack == PrevAttack);
+        }
 
+        ExecuteAttack();
+    }
+
+    void ExecuteAttack()
+    {
+        if(!IsAttacking)
+        {
             switch (WhichAttack)
             {
-                case 1:StartCoroutine(Attack1()); break;
-                case 2:StartCoroutine(Attack2()); break;
-                case 3:StartCoroutine(Attack3()); break;
-                case 4:if (Cooldown == false) StartCoroutine(Attack4()); break;
-                case 5:StartCoroutine(Attack5()); break;
-                case 6:StartCoroutine(Attack6()); break;
+                case 1: StartCoroutine(Attack1()); break;
+                case 2: StartCoroutine(Attack2()); break;
+                case 3: StartCoroutine(Attack3()); break;
+                case 4: if (Cooldown == false) StartCoroutine(Attack4()); break;
+                case 5: StartCoroutine(Attack5()); break;
+                case 6: StartCoroutine(Attack6()); break;
                 case 7: if (Cooldown == false) StartCoroutine(Attack7()); break;
             }
         }
@@ -394,8 +371,6 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 1", false);
         Anim.SetBool("Attack 1", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
-        Behaviour();
     }
 
     private IEnumerator Attack2()
@@ -437,8 +412,6 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 2", false);
         Anim.SetBool("Attack 2", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
-        Behaviour();
     }
 
     private IEnumerator Attack3()
@@ -471,8 +444,6 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 3", false);
         Anim.SetBool("Attack 3", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
-        Behaviour();
     }
 
     private IEnumerator Attack4()
@@ -500,10 +471,8 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 4", false);
         Anim.SetBool("Attack 4", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
         Cooldown = true;
         CooldownTime = 10f;
-        Behaviour();
     }
 
     private IEnumerator Attack5()
@@ -526,8 +495,6 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 5", false);
         Anim.SetBool("Attack 5", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
-        Behaviour();
     }
 
     private IEnumerator Attack6()
@@ -562,8 +529,6 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 6", false);
         Anim.SetBool("Attack 6", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
-        Behaviour();
     }
 
     private IEnumerator Attack7()
@@ -579,10 +544,8 @@ public class Warrior : MonoBehaviour
         SpellAnimation.SetBool("Spell 7", false);
         Anim.SetBool("Attack 7", false);
         IsAttacking = false;
-        PrevAttack = WhichAttack;
         Cooldown = true;
         CooldownTime = 10f;
-        Behaviour();
     }
 
     private IEnumerator SpawnSpikes()

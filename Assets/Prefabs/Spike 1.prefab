@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2145257097573506847}
   m_Layer: 12
   m_Name: Spike 1
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1715098451
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5159362228428509745, guid: 96281ec7d4e3c234ebe6923a7e66a744,
     type: 3}
@@ -235,7 +235,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -7567649
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0

@@ -5,10 +5,23 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     public GameObject EnemyComponent;
+    public int Area;
+
+    private IEnemy Enemy;
+
+    private void Awake()
+    {
+        Enemy = EnemyComponent.GetComponent<IEnemy>();
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
+        {
+            Enemy.Combat(true, Area);
+        }
+
+        if (other.gameObject.tag == "Player")
         {
             if (EnemyComponent.GetComponent<Snarkh>() != null)
             {
@@ -64,7 +77,12 @@ public class EnemyCombat : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
+        {
+            Enemy.Combat(false, Area);
+        }
+
+        if (other.gameObject.tag == "Player")
         {
             if (EnemyComponent.GetComponent<Snarkh>() != null)
             {

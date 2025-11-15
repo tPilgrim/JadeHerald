@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4025900730018934848}
   m_Layer: 12
   m_Name: Bubble 2
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1715098451
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6885528313024396516, guid: 025d54b115453804caf850faa844218d,
     type: 3}
@@ -214,7 +214,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -7567649
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_RenderMode: 0
   m_MeshDistribution: 0
