@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private Animator Anim;    
+    private Animator Anim;
+    public Animator SpellAnim;
 
     public GameObject EnemyComponent;
 
@@ -64,6 +65,10 @@ public class EnemyHealth : MonoBehaviour
         {
             PlayerPrefs.SetInt(gameObject.transform.name + SceneManager.GetActiveScene().buildIndex, 0);
             Anim.SetBool("IsDying", true);
+            if(SpellAnim != null)
+            {
+                SpellAnim.SetTrigger("IsDying");
+            }
             IsDead = true;
         }
     }

@@ -11,14 +11,16 @@ public class EnemyCombat : MonoBehaviour
 
     private void Awake()
     {
-        Enemy = EnemyComponent.GetComponent<IEnemy>();
+        if (EnemyComponent.GetComponent<IEnemy>() != null)
+            Enemy = EnemyComponent.GetComponent<IEnemy>();
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Enemy.Combat(true, Area);
+            if (Enemy != null)
+                Enemy.Combat(true, Area);
         }
 
         if (other.gameObject.tag == "Player")
@@ -79,7 +81,8 @@ public class EnemyCombat : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Enemy.Combat(false, Area);
+            if (Enemy != null)
+                Enemy.Combat(false, Area);
         }
 
         if (other.gameObject.tag == "Player")

@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -232,7 +232,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 0
+        y: 80
         width: 96
         height: 80
       alignment: 7
@@ -252,7 +252,7 @@ TextureImporter:
       name: Spell 4_6
       rect:
         serializedVersion: 2
-        x: 576
+        x: 0
         y: 0
         width: 96
         height: 80
@@ -265,6 +265,90 @@ TextureImporter:
       bones: []
       spriteID: dee42f47a0005484d95c44ec5a8a91c7
       internalID: 1392811479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spell 4_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6b3b605d1ed7e4daf0319303e5e7f7
+      internalID: -424103635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spell 4_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d6ec6c9665e19469b8af74b60b71a0
+      internalID: 624089983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spell 4_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26674d974935df04eadb4fab1b0f738f
+      internalID: -1932597399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spell 4_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87482c4d1aaf8d34aafdc140f7e7b45e
+      internalID: -469225988
       vertices: []
       indices: 
       edges: []
@@ -282,11 +366,15 @@ TextureImporter:
     nameFileIdTable:
       Spell 4_0: -640688000
       Spell 4_1: 834143192
+      Spell 4_10: -469225988
       Spell 4_2: -1812394303
       Spell 4_3: 1634965064
       Spell 4_4: -2057991122
       Spell 4_5: 675467325
       Spell 4_6: 1392811479
+      Spell 4_7: -424103635
+      Spell 4_8: 624089983
+      Spell 4_9: -1932597399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

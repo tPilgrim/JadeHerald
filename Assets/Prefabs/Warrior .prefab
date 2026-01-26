@@ -15792,6 +15792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyComponent: {fileID: 5964743667764568101}
+  Area: 0
 --- !u!1 &5964743666642759724
 GameObject:
   m_ObjectHideFlags: 0
@@ -21031,6 +21032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0006006fcc5a240a2650f4cf3dbc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellAnim: {fileID: 5964743666874686062}
   EnemyComponent: {fileID: 5964743667764568101}
   HP: 30
   Enemy: {fileID: 5964743667764568100}
@@ -21059,7 +21061,7 @@ MonoBehaviour:
   StruckParticles: {fileID: 863035400}
   Speed: 0.675
   DashSpeed: 4.5
-  FloatSpeed: 1.5
+  FloatSpeed: 1.625
   JumpSpeed: 5
   JumpHeight: 2
   AttackHitbox:
@@ -21072,11 +21074,11 @@ MonoBehaviour:
   - {fileID: 2015178475292524702}
   - {fileID: 5721585972801433087}
   - {fileID: 7572099784854154198}
-  AttackPoint: {fileID: 0}
+  AttackPoint: {fileID: 5964743666874686061}
   SpellPoint: {fileID: 137823793509809352}
   SpawnPoint: {fileID: 1450980891}
   SpawnRate: 0.2
-  Bubble: {fileID: 3130694381622248506, guid: 0358ee98673366b4db546e47004b9c8f, type: 3}
+  Bubble: {fileID: 6665694704279078057, guid: 5127f66d2aa07784182be77584747494, type: 3}
   SpikeRight: {fileID: 3130694381622248506, guid: dec45c4245a56de48a7813e0988e321d,
     type: 3}
   SpikeLeft: {fileID: 3130694381622248506, guid: 238621f85ebee6544b30848585e932d0,
@@ -21095,6 +21097,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ecbebf021869d5b42ad5d6d2c618fb75, type: 2}
   - {fileID: 2100000, guid: 45a0467d66851924592b0cf248c2da81, type: 2}
   - {fileID: 2100000, guid: 130e11ff84cecbe4b97ee6894764129c, type: 2}
+  - {fileID: 2100000, guid: 34bad2279a199a246885bf1717c79d43, type: 2}
   AudioRun: {fileID: 7553281011872875269}
   Attack1Sound: {fileID: 8300000, guid: 67cf32f6ea51f4b469471e9797682e28, type: 3}
   Attack2Sound: {fileID: 8300000, guid: 5c77bb184d8a2484888d1d6e45312b18, type: 3}
@@ -21110,6 +21113,7 @@ MonoBehaviour:
   Ring3Anim: {fileID: 0}
   Ring4Anim: {fileID: 0}
   RingAudio: {fileID: 0}
+  Beatle: {fileID: 0}
 --- !u!95 &5964743667764568099
 Animator:
   serializedVersion: 5

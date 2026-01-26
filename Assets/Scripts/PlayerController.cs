@@ -179,7 +179,6 @@ public class PlayerController : MonoBehaviour
             if (isSlowMotion)
             {
                 Time.timeScale = 0.05f; // Slow down time
-                Time.fixedDeltaTime = 0.005f * Time.timeScale; // Adjust physics
 
                 foreach (var aSource in aSources)
                 {
@@ -189,7 +188,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Time.timeScale = 1f; // Reset time
-                Time.fixedDeltaTime = 0.005f; // Reset physics
 
                 foreach (var aSource in aSources)
                 {

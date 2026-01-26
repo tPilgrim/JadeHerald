@@ -133,6 +133,8 @@ MonoBehaviour:
   CollisonParticles: {fileID: 8395391643639399313, guid: f32ec684d419c1e45955b88b3e4cd992,
     type: 3}
   Left: 1
+  minRotation: 0
+  maxRotation: 12
 --- !u!50 &3130694381622248487
 Rigidbody2D:
   serializedVersion: 4

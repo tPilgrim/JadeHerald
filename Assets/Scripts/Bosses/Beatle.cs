@@ -14,14 +14,15 @@ public class Beatle : MonoBehaviour, IEnemy
     private Vector3 Scaler;
     public ParticleSystem DeathParticles;
     public ParticleSystem LandParticles;
-    public ParticleSystem BurstParticles;
-    public ParticleSystem StruckParticles;
+    public ParticleSystem GallopParticles;
 
     private bool IsMelee;
     private bool Cooldown;
     private float CooldownTime;
-    private bool CanTurn = true;
     private bool IsDead;
+
+    public float GallopSpeed;
+    private bool IsGalloping;
 
     public float Speed;
     public float DashSpeed;
@@ -34,8 +35,16 @@ public class Beatle : MonoBehaviour, IEnemy
     private int Randomizer;
     private int JumpRand;
     private bool IsJumping;
+
+    private float CurJumpSpeed;
+    private float CurJumpHeight;
+
     public float JumpSpeed;
     public float JumpHeight;
+
+    public float GrandJumpSpeed;
+    public float GrandJumpHeight;
+
     private bool JumpDirection;
     private int WhichAttack;
     public GameObject[] AttackHitbox;
@@ -47,9 +56,13 @@ public class Beatle : MonoBehaviour, IEnemy
     private bool CanSpawn;
     public GameObject Bubble;
     public GameObject SpikeRight;
+    public GameObject FastSpikeRight;
     public GameObject SpikeLeft;
+    public GameObject FastSpikeLeft;
     public GameObject BurstObject;
     public Transform BurstPoint;
+
+    private bool Direction;
 
     public Renderer MaterialRenderer;
     public Material[] Glows;
@@ -65,34 +78,45 @@ public class Beatle : MonoBehaviour, IEnemy
     public AudioClip Attack7Sound;
     public AudioClip SpikeSound;
     public AudioClip RunSound;
+
+    private int Area;
+    private bool FirstTurn;
     void Start()
     {
-        MaterialRenderer.sharedMaterial = Glows[8];
+        MaterialRenderer.sharedMaterial = Glows[13];
         Anim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         EnemyRb = GetComponent<Rigidbody2D>();
         DefaultLayer = LayerMask.NameToLayer("Dead");
         AudioManager = GetComponent<AudioSource>();
+        CooldownTime = 8f;
     }
     void Update()
     {
-        if (IsDead == false)
+        if (IsDead == false && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Stance") && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Fall"))
         {
-            SpellCooldown();
-            Follow();
-            if (IsAttacking == false && IsDashing == false && CanTurn == true && WhichAttack != 7)
+            GallopCooldown();
+
+            if (IsAttacking == false && IsGalloping == false && !(Area == 2 && IsMelee))
             {
                 Turn();
             }
-            if(IsMelee)
+
+            if(IsMelee && Area != 3)
             {
-                //ChooseAttack(WhichAttack);
+                ChooseAttack(WhichAttack);
             }
+
+            Follow();
         }
         else
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
-            AttackPoint.SetActive(false);
+            //EnemyRb.velocity = new Vector2(0f, 0f);
+        }
+
+        if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Stance"))
+        {
+            MaterialRenderer.sharedMaterial = Glows[12];
         }
     }
 
@@ -117,51 +141,59 @@ public class Beatle : MonoBehaviour, IEnemy
     {
         if (other.gameObject.tag == "Ground")
         {
+            Anim.SetTrigger("Stance");
+            SpellAnimation.SetTrigger("Stance");
             LandParticles.Play();
+            EnemyRb.gravityScale = 5;
+        }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            int TurnRand = Random.Range(1, 11);
+
+            if (1 <= TurnRand && TurnRand <= 5 && FirstTurn == false)
+            {
+                Turn();
+                FirstTurn = true;
+            }
+            else
+            {
+                FirstTurn = false;
+                CanSpawn = false;
+                AttackHitbox[10].SetActive(false);
+                Anim.SetBool("Attack 4", false);
+                SpellAnimation.SetBool("Spell 4", false);
+                IsGalloping = false;
+                Anim.SetBool("IsGalloping", false);
+                SpellAnimation.SetBool("IsGalloping", false);
+
+                if (this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 4") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Gallop"))
+                {
+                    Anim.SetBool("Attack 5", false);
+                    SpellAnimation.SetBool("Spell 5", false);
+                    IsAttacking = false;
+                }
+            }
         }
     }
 
     public void Combat(bool EnterCombat, int AreaId)
     {
         IsMelee = EnterCombat;
+        Area = AreaId;
 
-        Randomizer = Random.Range(1, 101);
+        if(AreaId == 3 && this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Gallop"))
+        {
+            CurJumpSpeed = GrandJumpSpeed;
+            CurJumpHeight = GrandJumpHeight;
 
-        if (AreaId == 0)
-        {
-            if (Randomizer >= 1 && Randomizer <= 60)
-            {
-                WhichAttack = 1;
-            }
-            else if (Randomizer >= 61 && Randomizer <= 100)
-            {
-                WhichAttack = 6;
-            }
+            AttackHitbox[10].SetActive(false);
+            Anim.SetBool("IsGalloping", false);
+            SpellAnimation.SetBool("IsGalloping", false);
+            Anim.SetBool("JumpAttack", true);
+            SpellAnimation.SetBool("JumpAttack", true);
+            MaterialRenderer.sharedMaterial = Glows[9];
         }
-        else if (AreaId == 1)
-        {
-            if (Randomizer >= 1 && Randomizer <= 60)
-            {
-                WhichAttack = 3;
-            }
-            else if (Randomizer >= 61 && Randomizer <= 100)
-            {
-                WhichAttack = 6;
-            }
-        }
-        else
-        {
-            if (Randomizer >= 1 && Randomizer <= 70)
-            {
-                WhichAttack = 7;
-            }
-            else if (Randomizer >= 31 && Randomizer <= 100)
-            {
-                WhichAttack = 6;
-            }
-        }
-
-        ExecuteAttack();
     }
 
     public void JumpCheck(bool ShouldJump)
@@ -172,29 +204,42 @@ public class Beatle : MonoBehaviour, IEnemy
 
             if (1 <= JumpRand && JumpRand <= 4)
             {
+                CurJumpSpeed = JumpSpeed;
+                CurJumpHeight = JumpHeight;
+
                 WhichAttack = 2;
                 ExecuteAttack();
             }
         }
     }
 
-    void SpellCooldown()
+    void GallopCooldown()
     {
         if (CooldownTime > 0)
         {
-            Cooldown = true;
             CooldownTime -= Time.deltaTime;
         }
         else
         {
-            Cooldown = false;
-            //ChooseAttack(WhichAttack);
+            WhichAttack = Random.Range(4, 6);
+            ExecuteAttack();
+            CooldownTime = 12f;
         }
+    }
+
+    void LongCameraShake()
+    {
+        CameraShake.Instance.ShakeCamera(1f, 1f);
+    }
+
+    void ShortCameraShake()
+    {
+        CameraShake.Instance.ShakeCamera(1.5f, 0.2f);
     }
 
     void Follow()
     {
-        if (IsAttacking == false && IsDashing == false)
+        if (IsAttacking == false && IsGalloping == false)
         {
             if (!AudioRun.isPlaying)
                 AudioRun.Play();
@@ -226,12 +271,21 @@ public class Beatle : MonoBehaviour, IEnemy
             SpellAnimation.SetBool("IsRunning", false);
         }
 
-        if (IsAttacking == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 2"))
-        {
-            EnemyRb.velocity = new Vector2(0f, 0f);
-        }
+        //if (IsAttacking == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 2"))
+        //{
+        //    EnemyRb.velocity = new Vector2(0f, 0f);
+        //}
 
         Scaler = transform.localScale;
+
+        if (Scaler.x > 0)
+        {
+            Direction = true;
+        }
+        else
+        {
+            Direction = false;
+        }
 
         if (IsDashing == true)
         {
@@ -247,49 +301,91 @@ public class Beatle : MonoBehaviour, IEnemy
 
         if (IsJumping == true)
         {
-            if (JumpDirection == true)
+            if (Scaler.x > 0)
             {
-                EnemyRb.velocity = new Vector2(-JumpSpeed, JumpHeight);
+                EnemyRb.velocity = new Vector2(CurJumpSpeed, CurJumpHeight);
             }
-            else
+            else if (Scaler.x < 0)
             {
-                EnemyRb.velocity = new Vector2(JumpSpeed, JumpHeight);
+                EnemyRb.velocity = new Vector2(-CurJumpSpeed, CurJumpHeight);
             }
         }
 
-        if (FloatUp == true)
+        if (IsGalloping == true)
         {
-            EnemyRb.velocity = new Vector2(EnemyRb.velocity.x, FloatSpeed);
+            if (Scaler.x > 0)
+            {
+                EnemyRb.velocity = new Vector2(GallopSpeed, 0f);
+            }
+            else if (Scaler.x < 0)
+            {
+                EnemyRb.velocity = new Vector2(-GallopSpeed, 0f);
+            }
         }
     }
 
     void ChooseAttack(int PrevAttack)
     {
-        //if (!IsAttacking)
-        //{
-        //    do
-        //    {
-        //        Randomizer = Random.Range(1, 101);
+        if (!IsAttacking)
+        {
+            do
+            {
+                Randomizer = Random.Range(1, 101);
 
-        //        if (Randomizer >= 1 && Randomizer <= 35)
-        //        {
-        //            WhichAttack = 1;
-        //        }
-        //        else if (Randomizer >= 36 && Randomizer <= 60)
-        //        {
-        //            WhichAttack = 3;
-        //        }
-        //        else if (Randomizer >= 61 && Randomizer <= 80)
-        //        {
-        //            WhichAttack = 6;
-        //        }
-        //        else if (Randomizer >= 81 && Randomizer <= 100)
-        //        {
-        //            WhichAttack = 7;
-        //        }
+                if (Randomizer >= 1 && Randomizer <= 70 && IsMelee)
+                {
+                    if (Area == 0)
+                    {
+                        if (Randomizer >= 1 && Randomizer <= 50)
+                        {
+                            WhichAttack = 1;
+                        }
+                        else if (Randomizer >= 51 && Randomizer <= 70)
+                        {
+                            WhichAttack = 6;
+                        }
+                    }
+                    else if (Area == 1)
+                    {
+                        if (Randomizer >= 1 && Randomizer <= 50)
+                        {
+                            WhichAttack = 3;
+                        }
+                        else if (Randomizer >= 51 && Randomizer <= 70)
+                        {
+                            WhichAttack = 6;
+                        }
+                    }
+                    else if (Area == 2)
+                    {
+                        if (Randomizer >= 1 && Randomizer <= 15)
+                        {
+                            WhichAttack = 3;
+                        }
+                        else if (Randomizer >= 16 && Randomizer <= 30)
+                        {
+                            WhichAttack = 6;
+                        }
+                        else if (Randomizer >= 31 && Randomizer <= 70)
+                        {
+                            WhichAttack = 7;
+                        }
+                    }
+                }
+                else
+                {
+                    if (Randomizer >= 71 && Randomizer <= 85)
+                    {
+                        WhichAttack = 4;
+                    }
+                    else if (Randomizer >= 86 && Randomizer <= 100)
+                    {
+                        WhichAttack = 5;
+                    }
+                }
 
-        //    } while (WhichAttack == PrevAttack);
-        //}
+            } while (WhichAttack == PrevAttack);
+        }
 
         ExecuteAttack();
     }
@@ -303,10 +399,10 @@ public class Beatle : MonoBehaviour, IEnemy
                 case 1: Attack1(); break;
                 case 2: Attack2(); break;
                 case 3: Attack3(); break;
-                case 4: if (Cooldown == false) Attack4(); break;
+                case 4: Attack4(); break;
                 case 5: Attack5(); break;
                 case 6: Attack6(); break;
-                case 7: if (Cooldown == false) Attack7(); break;
+                case 7: Attack7(); break;
             }
         }
     }
@@ -341,6 +437,20 @@ public class Beatle : MonoBehaviour, IEnemy
     void Attack4()
     {
         IsAttacking = true;
+
+        Scaler = transform.localScale;
+
+        if (transform.position.x > 0 && Scaler.x > 0)
+        {
+            Scaler.x *= -1;
+            transform.localScale = Scaler;
+        }
+        else if (transform.position.x < 0 && Scaler.x < 0)
+        {
+            Scaler.x *= -1;
+            transform.localScale = Scaler;
+        }
+
         //AudioManager.PlayOneShot(Attack1Sound);
         MaterialRenderer.sharedMaterial = Glows[4];
         Anim.SetBool("Attack 4", true);
@@ -374,30 +484,100 @@ public class Beatle : MonoBehaviour, IEnemy
         SpellAnimation.SetBool("Spell 7", true);
     }
 
-    public void SpawnHitbox(int AttackId)
+    private IEnumerator SpawnSpikes()
+    {
+        if (CanSpawn == true)
+            if(Direction)
+            {
+                Instantiate(FastSpikeRight, SpawnPoint.position, SpawnPoint.rotation);
+            }
+            else
+            {
+                Instantiate(SpikeRight, SpawnPoint.position, SpawnPoint.rotation);
+            }
+            AudioManager.PlayOneShot(SpikeSound);
+        yield return new WaitForSeconds(SpawnRate);
+        if (CanSpawn == true)
+            if(Direction)
+            {
+                Instantiate(SpikeLeft, SpawnPoint.position, SpawnPoint.rotation);
+            }
+            else
+            {
+                Instantiate(FastSpikeLeft, SpawnPoint.position, SpawnPoint.rotation);
+            }
+        yield return new WaitForSeconds(SpawnRate);
+        if (CanSpawn == true)
+        {
+            StartCoroutine(SpawnSpikes());
+        }
+    }
+
+    void SpawnHitbox(int AttackId)
     {
         AttackHitbox[AttackId].SetActive(true);
     }
 
-    public void DespawnHitbox(int AttackId)
+    void DespawnHitbox(int AttackId)
     {
         AttackHitbox[AttackId].SetActive(false);
     }
-    public void StopAttack(int AttackId)
+    void StopAttack(int AttackId)
     {
         IsAttacking = false;
         Anim.SetBool("Attack " + AttackId, false);
         SpellAnimation.SetBool("Spell " + AttackId, false);
+        Anim.SetBool("JumpAttack", false);
+        SpellAnimation.SetBool("JumpAttack", false);
     }
 
-    public void StartJump()
+    void StartJump()
     {
         IsJumping = true;
+        GallopParticles.Play();
     }
 
-    public void StopJump()
+    void StopJump()
     {
-        IsJumping= false;
+        IsJumping = false;
+        if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 5"))
+        {
+            EnemyRb.gravityScale = 5.75f;
+        }
+        CurJumpSpeed = JumpSpeed;
+        CurJumpHeight = JumpHeight;
+    }
+
+    void StartGallop(int Id)
+    {
+        Anim.SetBool("IsGalloping", true);
+        SpellAnimation.SetBool("IsGalloping", true);
+        if (Id == 1)
+        {
+            MaterialRenderer.sharedMaterial = Glows[8];
+            StartCoroutine(SpawnSpikes());
+        }
+        else
+        {
+            MaterialRenderer.sharedMaterial = Glows[11];
+        }
+        CanSpawn = true;
+    }
+
+    void StopGallop()
+    {
+        IsGalloping = false;
+    }
+
+    void AdvanceGallop()
+    {
+        AttackHitbox[10].SetActive(true);
+        IsGalloping = true;
+    }
+
+    void GallopPart()
+    {
+        GallopParticles.Play();
     }
 
     void Death()

@@ -10,13 +10,15 @@ public class EnemyJump : MonoBehaviour
 
     private void Awake()
     {
-        Enemy = EnemyComponent.GetComponent<IEnemy>();
+        if (EnemyComponent.GetComponent<IEnemy>() != null)
+            Enemy = EnemyComponent.GetComponent<IEnemy>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Ground")
         {
+            if(Enemy!=null)
             Enemy.JumpCheck(true);
 
             if (EnemyComponent.GetComponent<Scout>() != null)
@@ -37,7 +39,8 @@ public class EnemyJump : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Enemy.JumpCheck(true);
+            if (Enemy != null)
+                Enemy.JumpCheck(true);
 
             if (EnemyComponent.GetComponent<Warrior>() != null)
             {
@@ -50,7 +53,8 @@ public class EnemyJump : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            Enemy.JumpCheck(false);
+            if (Enemy != null)
+                Enemy.JumpCheck(false);
 
             if (EnemyComponent.GetComponent<Scout>() != null)
             {
@@ -70,7 +74,8 @@ public class EnemyJump : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Enemy.JumpCheck(false);
+            if (Enemy != null)
+                Enemy.JumpCheck(false);
 
             if (EnemyComponent.GetComponent<Warrior>() != null)
             {

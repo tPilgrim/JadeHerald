@@ -18,6 +18,9 @@ public class Spike : MonoBehaviour
     public GameObject CollisonParticles;
     public bool Left;
 
+    public int minRotation;
+    public int maxRotation;
+
     void Start()
     {
         SpikeRb = GetComponent<Rigidbody2D>();
@@ -39,11 +42,11 @@ public class Spike : MonoBehaviour
         yield return new WaitForSeconds(ChargeTime);
         if(Left == true)
         {
-            Direction.x = Random.Range(-12, 0);
+            Direction.x = Random.Range(-maxRotation, minRotation);
         }
         else
         {
-            Direction.x = Random.Range(0, 12);
+            Direction.x = Random.Range(minRotation, maxRotation);
         }
         Direction.y = Random.Range(-1, -10);
         Direction.Normalize();

@@ -71,6 +71,9 @@ public class Warrior : MonoBehaviour
     public Animator Ring3Anim;
     public Animator Ring4Anim;
     public AudioSource RingAudio;
+    public GameObject Rings;
+
+    public GameObject Beatle;
 
     void Start()
     {
@@ -85,7 +88,7 @@ public class Warrior : MonoBehaviour
 
     void Update()
     {
-        if (IsDead == false)
+        if (IsDead == false )
         {
             if (StartFight)
             {
@@ -101,7 +104,12 @@ public class Warrior : MonoBehaviour
         else
         {
             EnemyRb.velocity = new Vector2(0f, 0f);
-            AttackPoint.SetActive(false);
+            //AttackPoint.SetActive(false);
+        }
+
+        if (FloatUp == true)
+        {
+            EnemyRb.velocity = new Vector2(EnemyRb.velocity.x, FloatSpeed);
         }
     }
 
@@ -174,7 +182,7 @@ public class Warrior : MonoBehaviour
 
     public void StartJump(bool ShouldJump)
     {
-        if(ShouldJump == true)
+        if(ShouldJump == true && StartFight)
         {
             JumpRand = Random.Range(1, 11);
 
@@ -326,7 +334,7 @@ public class Warrior : MonoBehaviour
 
     void ExecuteAttack()
     {
-        if(!IsAttacking)
+        if(!IsAttacking && !IsDead)
         {
             switch (WhichAttack)
             {
@@ -592,10 +600,39 @@ public class Warrior : MonoBehaviour
         StartFight = true;
     }
 
-    void Death()
+    public void StartFloat()
     {
+        FloatUp = true;
+        EnemyRb.gravityScale = 0;
+    }
+
+    public void StopFloat()
+    {
+        Rings.transform.position = transform.position + new Vector3(0f, 0.625f, 0f);
+        Ring1Anim.SetTrigger("Appear");
+        Ring2Anim.SetTrigger("Appear");
+        Ring3Anim.SetTrigger("Appear");
+        Ring4Anim.SetTrigger("Appear");
+        FloatUp = false;
+    }
+
+    public void Death()
+    {
+        for (int i = 1; i < 8; i++)
+        {
+            SpellAnimation.SetBool("Spell " + i, false);
+            Anim.SetBool("Attack " + i, false);
+        }
+        MaterialRenderer.sharedMaterial = Glows[9];
         IsDead = true;
         DeathParticles.Play();
         gameObject.layer = DefaultLayer;
+    }
+
+    public void DestroyObject()
+    {
+        Instantiate(Beatle, Player.transform.position + new Vector3(0f, 3.5f, 0f), transform.rotation);
+        //Beatle.SetActive(true);
+        Destroy(gameObject);
     }
 }

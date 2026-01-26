@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Attack : MonoBehaviour
 {
@@ -15,13 +16,22 @@ public class Attack : MonoBehaviour
 
     private GameObject PlayerComponent;
     private Transform PlayerPosition;
-    public GameObject Sheild;
+    private GameObject Sheild;
 
     void Start()
     {
         PlayerComponent = GameObject.FindGameObjectWithTag("Player");
-        //Sheild = GameObject.Find("Sheild");
         PlayerPosition = GameObject.Find("Player").transform;
+        Transform ShieldTransform = PlayerPosition.Find("Colliders/Shield");
+
+        if (ShieldTransform != null)
+        {
+            Sheild = ShieldTransform.gameObject;
+        }
+        else
+        {
+            Sheild = null;
+        }
     }
 
     void Update()
@@ -47,7 +57,7 @@ public class Attack : MonoBehaviour
     {
         if (other.gameObject.tag == "Sheild" || other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerCollider")
         {
-            if(Sheild.activeSelf == true)
+            if(Sheild != null)
             {
                 if ((transform.position.x < PlayerPosition.position.x && PlayerPosition.localScale.x == -1) || (transform.position.x > PlayerPosition.position.x && PlayerPosition.localScale.x == 1))
                 {

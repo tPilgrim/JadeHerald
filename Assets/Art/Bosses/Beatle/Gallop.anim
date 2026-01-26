@@ -21,27 +21,27 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1301417731, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: -455878119, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.083333336
-      value: {fileID: 1703628605, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: -1058171844, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.16666667
-      value: {fileID: 1435752132, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: -1255890147, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.25
-      value: {fileID: 455519771, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 1667068645, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.33333334
-      value: {fileID: 1907670090, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 812357333, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.41666666
-      value: {fileID: -90131420, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: -1648237767, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.5
-      value: {fileID: 450665874, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: -1650445512, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.5833333
-      value: {fileID: 1633907700, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 380513371, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.6666667
-      value: {fileID: 993023482, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 1110180103, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.75
-      value: {fileID: 1767119977, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 785441079, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     - time: 0.8333333
-      value: {fileID: -1761748448, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+      value: {fileID: 895845142, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -64,17 +64,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1301417731, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 1703628605, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 1435752132, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 455519771, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 1907670090, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: -90131420, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 450665874, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 1633907700, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 993023482, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: 1767119977, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
-    - {fileID: -1761748448, guid: c5bcb2656bef99643b75cdf65d16c3a3, type: 3}
+    - {fileID: -455878119, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: -1058171844, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: -1255890147, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 1667068645, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 812357333, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: -1648237767, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: -1650445512, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 380513371, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 1110180103, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 785441079, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
+    - {fileID: 895845142, guid: cd35dcd543529374e8ab467b9b851b63, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -99,4 +99,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: GallopPart
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
