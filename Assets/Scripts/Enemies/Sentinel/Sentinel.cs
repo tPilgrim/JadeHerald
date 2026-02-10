@@ -90,6 +90,7 @@ public class Sentinel : MonoBehaviour
             CanCombat = EnterCombat;
             Anim.SetBool("IsSleeping", false);
             IsSleeping = false;
+            Anim.SetTrigger("IsAwake");
             JumpCheck.SetActive(true);
             SleepTimeCounter = SleepTime;
             StartCounting = false;
@@ -141,11 +142,7 @@ public class Sentinel : MonoBehaviour
             Footsteps.Stop();
         }
 
-        if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Asleep") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Awake"))
-        {
-            EnemyRb.linearVelocity = new Vector2(0f, 0f);
-        }
-        else if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
+        if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
         {
             Speed = FollowSpeed;
             Anim.SetBool("IsRunning", true);
