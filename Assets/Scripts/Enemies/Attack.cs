@@ -16,22 +16,11 @@ public class Attack : MonoBehaviour
 
     private GameObject PlayerComponent;
     private Transform PlayerPosition;
-    private GameObject Sheild;
 
     void Start()
     {
         PlayerComponent = GameObject.FindGameObjectWithTag("Player");
-        PlayerPosition = GameObject.Find("Player").transform;
-        Transform ShieldTransform = PlayerPosition.Find("Colliders/Shield");
-
-        if (ShieldTransform != null)
-        {
-            Sheild = ShieldTransform.gameObject;
-        }
-        else
-        {
-            Sheild = null;
-        }
+        PlayerPosition = PlayerComponent.transform;
     }
 
     void Update()
@@ -55,27 +44,24 @@ public class Attack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Sheild" || other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerCollider")
+        if (!other.CompareTag("Shield") && !other.CompareTag("Player") && !other.CompareTag("PlayerCollider"))
+            return;
+
+        bool blocked = false;
+
+        if (other.CompareTag("Shield"))
         {
-            if(Sheild != null)
-            {
-                if ((transform.position.x < PlayerPosition.position.x && PlayerPosition.localScale.x == -1) || (transform.position.x > PlayerPosition.position.x && PlayerPosition.localScale.x == 1))
-                {
-                    PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, true);
-                    gameObject.SetActive(false);
-                }
-                else
-                {
-                    PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
-                    gameObject.SetActive(false);
-                }
-            }
-            else
-            {
-                PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
-                gameObject.SetActive(false);
-            }
+            bool attackFromLeft = transform.position.x < PlayerPosition.position.x;
+            bool playerFacingLeft = PlayerPosition.localScale.x == -1;
+
+            bool attackFromRight = transform.position.x > PlayerPosition.position.x;
+            bool playerFacingRight = PlayerPosition.localScale.x == 1;
+
+            blocked = (attackFromLeft && playerFacingLeft) || (attackFromRight && playerFacingRight);
         }
+
+        PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, blocked);
+        gameObject.SetActive(false);
 
         /*
         if (other.gameObject.tag == "Sheild")
@@ -91,56 +77,56 @@ public class Attack : MonoBehaviour
         }
         */
 
-            /*
-            if (other.gameObject.tag == "Sheild" || other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerCollider")
+        /*
+        if (other.gameObject.tag == "Sheild" || other.gameObject.tag == "Player" || other.gameObject.tag == "PlayerCollider")
+        {
+            if (EnemyTransform.localScale.x == 1)
             {
-                if (EnemyTransform.localScale.x == 1)
+                RaycastHit2D hit1 = Physics2D.Raycast(StartPosition, Vector2.left, LaserLength, PlayerMask);
+                if (hit1 != false)
                 {
-                    RaycastHit2D hit1 = Physics2D.Raycast(StartPosition, Vector2.left, LaserLength, PlayerMask);
-                    if (hit1 != false)
+                    if (hit1.collider.tag == "Sheild")
                     {
-                        if (hit1.collider.tag == "Sheild")
-                        {
-                            PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, true);
-                            gameObject.SetActive(false);
-                        }
-                        if (hit1.collider.tag == "Player" || hit1.collider.tag == "PlayerCollider")
-                        {
-                            PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
-                            gameObject.SetActive(false);
-                        }
+                        PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, true);
+                        gameObject.SetActive(false);
                     }
-                    else
+                    if (hit1.collider.tag == "Player" || hit1.collider.tag == "PlayerCollider")
                     {
                         PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
                         gameObject.SetActive(false);
                     }
                 }
-
-                if (EnemyTransform.localScale.x == -1)
+                else
                 {
-                    RaycastHit2D hit2 = Physics2D.Raycast(StartPosition, Vector2.right, LaserLength, PlayerMask);
-                    if (hit2 != false)
-                    {
-                        if (hit2.collider.tag == "Sheild")
-                        {
-                            PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, true);
-                            gameObject.SetActive(false);
-                        }
-                        if (hit2.collider.tag == "Player" || hit2.collider.tag == "PlayerCollider")
-                        {
-                            PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
-                            gameObject.SetActive(false);
-                        }
-                    }
-                    else
-                    {
-                        PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
-                        gameObject.SetActive(false);
-                    }
+                    PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
+                    gameObject.SetActive(false);
                 }
             }
-            */
+
+            if (EnemyTransform.localScale.x == -1)
+            {
+                RaycastHit2D hit2 = Physics2D.Raycast(StartPosition, Vector2.right, LaserLength, PlayerMask);
+                if (hit2 != false)
+                {
+                    if (hit2.collider.tag == "Sheild")
+                    {
+                        PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, true);
+                        gameObject.SetActive(false);
+                    }
+                    if (hit2.collider.tag == "Player" || hit2.collider.tag == "PlayerCollider")
+                    {
+                        PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    PlayerComponent.GetComponent<PlayerController>().AccesHealth(PhysicalDamage, MagicDamage, PoiseDamage, false);
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+        */
     }
     /*
     void OnTriggerExit2D(Collider2D other)

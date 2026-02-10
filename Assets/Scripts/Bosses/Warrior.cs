@@ -103,13 +103,13 @@ public class Warrior : MonoBehaviour
         }
         else
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
             //AttackPoint.SetActive(false);
         }
 
         if (FloatUp == true)
         {
-            EnemyRb.velocity = new Vector2(EnemyRb.velocity.x, FloatSpeed);
+            EnemyRb.linearVelocity = new Vector2(EnemyRb.linearVelocity.x, FloatSpeed);
         }
     }
 
@@ -231,17 +231,17 @@ public class Warrior : MonoBehaviour
             if (Player.position.x + 0.1 > transform.position.x && Player.position.x - 0.1 < transform.position.x && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 2"))
             {
                 AudioRun.Stop();
-                EnemyRb.velocity = new Vector2(0f, 0f);
+                EnemyRb.linearVelocity = new Vector2(0f, 0f);
                 Anim.SetBool("IsRunning", false);
                 SpellAnimation.SetBool("Spell Run", false);
             }
             else if (Player.transform.position.x < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(-Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-Speed, 0f);
             }
             else if (Player.transform.position.x > transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(Speed, 0f);
             }
         }
         else
@@ -253,7 +253,7 @@ public class Warrior : MonoBehaviour
 
         if (IsAttacking == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack 2"))
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
         }
 
         Scaler = transform.localScale;
@@ -262,11 +262,11 @@ public class Warrior : MonoBehaviour
         {
             if (Scaler.x > 0)
             {
-                EnemyRb.velocity = new Vector2(DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(DashSpeed, 0f);
             }
             else if (Scaler.x < 0)
             {
-                EnemyRb.velocity = new Vector2(-DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-DashSpeed, 0f);
             }
         }
 
@@ -274,17 +274,17 @@ public class Warrior : MonoBehaviour
         {
             if (JumpDirection == true)
             {
-                EnemyRb.velocity = new Vector2(-JumpSpeed, JumpHeight);
+                EnemyRb.linearVelocity = new Vector2(-JumpSpeed, JumpHeight);
             }
             else
             {
-                EnemyRb.velocity = new Vector2(JumpSpeed, JumpHeight);
+                EnemyRb.linearVelocity = new Vector2(JumpSpeed, JumpHeight);
             }
         }
 
         if (FloatUp == true)
         {
-            EnemyRb.velocity = new Vector2(EnemyRb.velocity.x, FloatSpeed);
+            EnemyRb.linearVelocity = new Vector2(EnemyRb.linearVelocity.x, FloatSpeed);
         }
     }
 

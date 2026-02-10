@@ -38,15 +38,15 @@ public class Cart : MonoBehaviour
             AudioManager.Play();
 
 
-        if (Mathf.Abs(EnemyRb.velocity.x) > 0.1f && EnemyRb.velocity.y >= -0.5f)
+        if (Mathf.Abs(EnemyRb.linearVelocity.x) > 0.1f && EnemyRb.linearVelocity.y >= -0.5f)
         {
             if (IsUpright)
             {
-                AudioManager.volume = Mathf.Abs(EnemyRb.velocity.x) / 10;
+                AudioManager.volume = Mathf.Abs(EnemyRb.linearVelocity.x) / 10;
             }
             else
             {
-                AudioManager.volume = Mathf.Abs(EnemyRb.velocity.x) / 5;
+                AudioManager.volume = Mathf.Abs(EnemyRb.linearVelocity.x) / 5;
             }
         }
         else

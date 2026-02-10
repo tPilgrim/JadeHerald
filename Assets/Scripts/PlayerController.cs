@@ -106,6 +106,8 @@ public class PlayerController : MonoBehaviour
     private Sprite DashSprite;
     private SpriteRenderer FadeRenderer;
 
+    private bool IsSitting;
+
     private bool StartJump;
     private bool StartAttack;
     private bool StartDash;
@@ -170,8 +172,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        aSources = FindObjectsOfType<AudioSource>();
-
         if (Input.GetKeyDown(KeyCode.Q)) // Toggle slow motion on key press
         {
             isSlowMotion = !isSlowMotion; // Toggle state
@@ -180,23 +180,14 @@ public class PlayerController : MonoBehaviour
             {
                 Time.timeScale = 0.05f; // Slow down time
 
-                foreach (var aSource in aSources)
-                {
-                    aSource.pitch = Time.timeScale; // Slow down audio
-                }
             }
             else
             {
                 Time.timeScale = 1f; // Reset time
-
-                foreach (var aSource in aSources)
-                {
-                    aSource.pitch = 1f; // Reset audio
-                }
             }
         }
 
-        if((IsAttacking && !IsJumpAttacking) || IsDefending || IsRegenerating || IsStaggered || ShieldStance || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Parry"))
+        if((IsAttacking && !IsJumpAttacking) || IsSitting || IsDefending || IsRegenerating || IsStaggered || ShieldStance || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Parry") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Stand") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sit Idle"))
         {
             CanMove = false;
         }
@@ -213,6 +204,7 @@ public class PlayerController : MonoBehaviour
         Regeneration();
         Defend();
         Dash();
+        Sit();
 
         if (Input.GetButton("Reset"))
         {
@@ -246,7 +238,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsDashing == true)
         {
-            PlayerRb.velocity = new Vector2(transform.localScale.x * DashSpeed, PlayerRb.velocity.y);
+            PlayerRb.linearVelocity = new Vector2(transform.localScale.x * DashSpeed, PlayerRb.linearVelocity.y);
         }
 
         if ((FacingRight == false && RunDirection == true && ControllerConnected == 0) || (FacingRight == false && MoveInput > 0))
@@ -277,7 +269,7 @@ public class PlayerController : MonoBehaviour
             JumpRequest = false;
         }
 
-        if (PlayerRb.velocity.y > 0)
+        if (PlayerRb.linearVelocity.y > 0)
         {
             JumpTimeCounter -= Time.deltaTime;
         }
@@ -289,20 +281,20 @@ public class PlayerController : MonoBehaviour
 
         if (JumpTimeCounter < 0)
         {
-            PlayerRb.velocity += Vector2.up * Physics2D.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
+            PlayerRb.linearVelocity += Vector2.up * Physics2D.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
         }
 
-        if (PlayerRb.velocity.y < 0)
+        if (PlayerRb.linearVelocity.y < 0)
         {
-            PlayerRb.velocity += Vector2.up * Physics2D.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
+            PlayerRb.linearVelocity += Vector2.up * Physics2D.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
         }
         //else if (PlayerRb.velocity.y > 0 && !Input.GetButton("Jump"))
-        else if (PlayerRb.velocity.y > 0 && ((StartJump == false && ControllerConnected == 0) || (!Input.GetButton("Jump") && ControllerConnected == 1)))
+        else if (PlayerRb.linearVelocity.y > 0 && ((StartJump == false && ControllerConnected == 0) || (!Input.GetButton("Jump") && ControllerConnected == 1)))
         {
-            PlayerRb.velocity += Vector2.up * Physics2D.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
+            PlayerRb.linearVelocity += Vector2.up * Physics2D.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
         }
 
-        PlayerRb.velocity = Vector2.ClampMagnitude(PlayerRb.velocity, MaxVelocity);
+        PlayerRb.linearVelocity = Vector2.ClampMagnitude(PlayerRb.linearVelocity, MaxVelocity);
     }
 
     void Turn()
@@ -429,7 +421,7 @@ public class PlayerController : MonoBehaviour
         }
 
         MoveBy = MoveInput * Speed;
-        PlayerRb.velocity = new Vector2(MoveBy, PlayerRb.velocity.y);
+        PlayerRb.linearVelocity = new Vector2(MoveBy, PlayerRb.linearVelocity.y);
         if (MoveInput != 0 || Input.GetAxis("Horizontal") != 0)
         {
             Anim.SetBool("IsRunning", true);
@@ -446,7 +438,7 @@ public class PlayerController : MonoBehaviour
         {
             Anim.SetBool("IsRunning", false);
             RunCollider.SetActive(false);
-            PlayerRb.velocity = new Vector2(0f, PlayerRb.velocity.y);
+            PlayerRb.linearVelocity = new Vector2(0f, PlayerRb.linearVelocity.y);
         }
 
         if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Run") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Land"))
@@ -482,7 +474,7 @@ public class PlayerController : MonoBehaviour
             Anim.SetBool("IsJumping", false);
         }
 
-        if (PlayerRb.velocity.y > 0.1 && (StartJump == true || Input.GetButton("Jump")))
+        if (PlayerRb.linearVelocity.y > 0.1 && (StartJump == true || Input.GetButton("Jump")))
         {
             Anim.SetBool("IsJumping", true);
         } 
@@ -499,7 +491,7 @@ public class PlayerController : MonoBehaviour
 
     void Fall()
     {
-        if (PlayerRb.velocity.y < 0)
+        if (PlayerRb.linearVelocity.y < 0)
         {
             FallTimeCounter -= Time.deltaTime;
             IsFalling = true;
@@ -559,7 +551,7 @@ public class PlayerController : MonoBehaviour
                 Anim.SetTrigger("IsLanding");
                 Anim.SetBool("LongFall", false);
 
-                if (PlayerRb.velocity.y < -7.4f)
+                if (PlayerRb.linearVelocity.y < -7.4f)
                 {
                     LandParticles.transform.position = new Vector2(transform.position.x, transform.position.y - 0.56f);
                 }
@@ -570,7 +562,7 @@ public class PlayerController : MonoBehaviour
                 LandParticles.Play();
             }
 
-            if (FirstCollision == 0 && PlayerRb.velocity.y <= -0.01f)
+            if (FirstCollision == 0 && PlayerRb.linearVelocity.y <= -0.01f)
             {
                 AudioManager.pitch = 1f;
                 AudioManager.volume = 0.3f;
@@ -684,7 +676,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!IsGrounded)
             {
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetAxis("Vertical") > 0f)
                 {
                     Anim.SetBool("JumpUpAttacking", IsAttacking);
                 }
@@ -697,7 +689,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetAxis("Vertical") > 0f)
             {
                 Anim.SetBool("IsUpAttacking", IsAttacking);
             }
@@ -998,7 +990,7 @@ public class PlayerController : MonoBehaviour
 
             if (IsGrounded == false)
             {
-                PlayerRb.velocity = new Vector2(0f, -6f);
+                PlayerRb.linearVelocity = new Vector2(0f, -6f);
             }
         }
     }
@@ -1240,7 +1232,7 @@ public class PlayerController : MonoBehaviour
 
         if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            PlayerRb.velocity = new Vector2(0f, PlayerRb.velocity.y);
+            PlayerRb.linearVelocity = new Vector2(0f, PlayerRb.linearVelocity.y);
         }
     }
 
@@ -1248,6 +1240,21 @@ public class PlayerController : MonoBehaviour
     {
         GameObject Fade = Instantiate(DashFade, transform.position, transform.rotation);
         Fade.transform.localScale = transform.localScale;
+    }
+
+    public void StartSit()
+    {
+        IsSitting = true;
+    }
+
+    void Sit()
+    {
+        Anim.SetBool("IsSitting", IsSitting);
+
+        if (Input.GetAxis("Horizontal") != 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sit"))
+        {
+            IsSitting = false;
+        }
     }
 
     public void CheckPoint(float PositionX, float PositionY)

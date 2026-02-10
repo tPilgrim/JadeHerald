@@ -32,7 +32,7 @@ public class Bubble : MonoBehaviour
     {
         if (Attack == true)
         {
-            BubbleRb.velocity = Direction * Speed * Time.deltaTime * 100;
+            BubbleRb.linearVelocity = Direction * Speed * Time.deltaTime * 100;
         }
     }
 

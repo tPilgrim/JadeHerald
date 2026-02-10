@@ -152,7 +152,7 @@ public class Bogle : MonoBehaviour
             Footsteps.Stop();
         }
 
-        if (CanCombat == true && EnemyRb.velocity.y >= 0 && IsJumping == false && JumpAgain == true)
+        if (CanCombat == true && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true)
         {
             Anim.SetBool("IsRunning", true);
 
@@ -172,7 +172,7 @@ public class Bogle : MonoBehaviour
 
             if(IsAttacking == false)
             {
-                EnemyRb.velocity = new Vector2(Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(Speed, 0f);
             }
         }
     }
@@ -193,7 +193,7 @@ public class Bogle : MonoBehaviour
             JumpSpeed = Mathf.Abs(JumpSpeed);
         }
 
-        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.velocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
+        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.linearVelocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
         {
             StartCoroutine(JumpStart());
         }
@@ -213,14 +213,14 @@ public class Bogle : MonoBehaviour
         JumpAgain = false;
         IsJumping = true;
         Anim.SetBool("IsJumping", true);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(0.4f);
         AudioManager.PlayOneShot(JumpSound, 0.6f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, JumpForce);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, JumpForce);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.1f);
         IsJumping = false;
         Anim.SetBool("IsJumping", false);
@@ -296,7 +296,7 @@ public class Bogle : MonoBehaviour
     IEnumerator Attack()
     {
         IsAttacking = true;
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         Anim.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(0.75f);
         StartCoroutine(Slash());
@@ -310,7 +310,7 @@ public class Bogle : MonoBehaviour
     IEnumerator Spit()
     {
         IsAttacking = true;
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         Anim.SetBool("IsSpitting", true);
         ChargeParticles.Play();
         yield return new WaitForSeconds(0.75f);
@@ -330,7 +330,7 @@ public class Bogle : MonoBehaviour
             AttackHitbox.SetActive(true);
             AudioManager.PlayOneShot(AttackSound, 0.4f);
             Scaler = transform.localScale;
-            EnemyRb.velocity = new Vector2(Scaler.x * -6f, 0f);
+            EnemyRb.linearVelocity = new Vector2(Scaler.x * -6f, 0f);
             /*
             if(Player.transform.position.x < transform.position.x)
             {
@@ -343,7 +343,7 @@ public class Bogle : MonoBehaviour
             */
         }
         yield return new WaitForSeconds(0.15f);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         AttackHitbox.SetActive(false);
     }
 
@@ -354,7 +354,7 @@ public class Bogle : MonoBehaviour
             DashHitbox.SetActive(true);
             AudioManager.PlayOneShot(AttackSound, 0.4f);
             Scaler = transform.localScale;
-            EnemyRb.velocity = new Vector2(Scaler.x * -6f, 0f);
+            EnemyRb.linearVelocity = new Vector2(Scaler.x * -6f, 0f);
             /*
             if (Player.transform.position.x < transform.position.x)
             {
@@ -367,7 +367,7 @@ public class Bogle : MonoBehaviour
             */
         }
         yield return new WaitForSeconds(0.15f);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         DashHitbox.SetActive(false);
     }
 
@@ -376,14 +376,14 @@ public class Bogle : MonoBehaviour
         AttackHitbox.SetActive(true);
         AudioManager.PlayOneShot(AttackSound, 0.4f);
         yield return new WaitForSeconds(0.1f);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         AttackHitbox.SetActive(false);
     }
 
     IEnumerator Stance()
     {
         IsAttacking = true;
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         Anim.SetBool("Stance", true);
         gameObject.GetComponent<EnemyHealth>().Defend(true);
         yield return new WaitForSeconds(2f);

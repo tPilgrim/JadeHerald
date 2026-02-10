@@ -2,13 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Ground
   - Enemy
   - Attack
   - Point
-  - Sheild
   - Spikes
   - PlayerCollider
   - UI
@@ -16,6 +15,7 @@ TagManager:
   - Object
   - Enemy1
   - Enemy2
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -83,3 +83,5 @@ TagManager:
   - name: UI
     uniqueID: 3505505591
     locked: 0
+  m_RenderingLayers:
+  - Default

@@ -250,18 +250,18 @@ public class Beatle : MonoBehaviour, IEnemy
             if (Player.position.x + 0.1 > transform.position.x && Player.position.x - 0.1 < transform.position.x)
             {
                 AudioRun.Stop();
-                EnemyRb.velocity = new Vector2(0f, 0f);
+                EnemyRb.linearVelocity = new Vector2(0f, 0f);
                 Anim.SetBool("IsRunning", false);
                 SpellAnimation.SetBool("IsRunning", false);
                 MaterialRenderer.sharedMaterial = Glows[8];
             }
             else if (Player.transform.position.x < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(-Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-Speed, 0f);
             }
             else if (Player.transform.position.x > transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(Speed, 0f);
             }
         }
         else
@@ -291,11 +291,11 @@ public class Beatle : MonoBehaviour, IEnemy
         {
             if (Scaler.x > 0)
             {
-                EnemyRb.velocity = new Vector2(DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(DashSpeed, 0f);
             }
             else if (Scaler.x < 0)
             {
-                EnemyRb.velocity = new Vector2(-DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-DashSpeed, 0f);
             }
         }
 
@@ -303,11 +303,11 @@ public class Beatle : MonoBehaviour, IEnemy
         {
             if (Scaler.x > 0)
             {
-                EnemyRb.velocity = new Vector2(CurJumpSpeed, CurJumpHeight);
+                EnemyRb.linearVelocity = new Vector2(CurJumpSpeed, CurJumpHeight);
             }
             else if (Scaler.x < 0)
             {
-                EnemyRb.velocity = new Vector2(-CurJumpSpeed, CurJumpHeight);
+                EnemyRb.linearVelocity = new Vector2(-CurJumpSpeed, CurJumpHeight);
             }
         }
 
@@ -315,11 +315,11 @@ public class Beatle : MonoBehaviour, IEnemy
         {
             if (Scaler.x > 0)
             {
-                EnemyRb.velocity = new Vector2(GallopSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(GallopSpeed, 0f);
             }
             else if (Scaler.x < 0)
             {
-                EnemyRb.velocity = new Vector2(-GallopSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-GallopSpeed, 0f);
             }
         }
     }

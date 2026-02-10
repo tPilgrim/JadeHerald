@@ -85,7 +85,7 @@ public class Bud : MonoBehaviour
                 Speed = FollowSpeed;
             }
 
-            EnemyRb.velocity = new Vector2(Speed, EnemyRb.velocity.y);
+            EnemyRb.linearVelocity = new Vector2(Speed, EnemyRb.linearVelocity.y);
         }
     }
 
@@ -93,22 +93,22 @@ public class Bud : MonoBehaviour
     {
         Anim.SetBool("IsFalling", IsFalling);
 
-        if (EnemyRb.velocity.y < -1)
+        if (EnemyRb.linearVelocity.y < -1)
         {
             IsFalling = true;
-            EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+            EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         }
         else
         {
             IsFalling = false;
         }
 
-        if(EnemyRb.velocity.y < -5)
+        if(EnemyRb.linearVelocity.y < -5)
         {
             LandBurst = true;
         }
 
-        if(LandBurst == true && EnemyRb.velocity.y >= 0)
+        if(LandBurst == true && EnemyRb.linearVelocity.y >= 0)
         {
             Attack();
         }
@@ -120,7 +120,7 @@ public class Bud : MonoBehaviour
         {
             IsAttacking = true;
             Anim.SetTrigger("IsAttacking");
-            EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+            EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         }
     }
 
@@ -132,7 +132,7 @@ public class Bud : MonoBehaviour
 
     void Death()
     {
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         gameObject.layer = DefaultLayer;
         IsDead = true;
     }

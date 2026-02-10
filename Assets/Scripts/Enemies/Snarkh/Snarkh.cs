@@ -68,7 +68,7 @@ public class Snarkh : MonoBehaviour
         {
             StopCoroutine(Dash());
             StopCoroutine(Restrain());
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
             Collider.SetActive(false);
             CanTurn = true;
             IsAttacking = false;
@@ -116,7 +116,7 @@ public class Snarkh : MonoBehaviour
             if (!AudioManager2.isPlaying)
                 AudioManager2.Play();
             Anim.SetBool("IsRuning", true);
-            EnemyRb.velocity = new Vector2(-Speed * Scaler.x, 0f);
+            EnemyRb.linearVelocity = new Vector2(-Speed * Scaler.x, 0f);
         }
     }
 
@@ -144,7 +144,7 @@ public class Snarkh : MonoBehaviour
         AudioManager2.clip = RunSound;
         if (!AudioManager2.isPlaying)
             AudioManager2.Play();
-        EnemyRb.velocity = new Vector2(-FollowSpeed * Scaler.x, 0f);
+        EnemyRb.linearVelocity = new Vector2(-FollowSpeed * Scaler.x, 0f);
         yield return new WaitForSeconds(1f);
         IsRestrained = false;
     }
@@ -160,17 +160,17 @@ public class Snarkh : MonoBehaviour
 
             if (Player.position.x + 0.1 > transform.position.x && Player.position.x - 0.1 < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(0f, 0f);
+                EnemyRb.linearVelocity = new Vector2(0f, 0f);
                 Anim.SetBool("IsRuning", false);
                 AudioManager2.Stop();
             }
             else if (Player.transform.position.x < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(-FollowSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-FollowSpeed, 0f);
             }
             else if (Player.transform.position.x > transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(FollowSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(FollowSpeed, 0f);
             }
         }
         else
@@ -183,7 +183,7 @@ public class Snarkh : MonoBehaviour
     IEnumerator Dash()
     {
         IsAttacking = true;
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         Anim.SetBool("IsChargeing", true);
         AudioManager.PlayOneShot(ChargeSound, 0.4f);
         yield return new WaitForSeconds(0.9375f);
@@ -195,7 +195,7 @@ public class Snarkh : MonoBehaviour
         }
         Anim.SetBool("IsChargeing", false);
         CanTurn = false;
-        EnemyRb.velocity = new Vector2(-DashSpeed*Scaler.x, 0f);
+        EnemyRb.linearVelocity = new Vector2(-DashSpeed*Scaler.x, 0f);
         yield return new WaitForSeconds(0.75f);
         Collider.SetActive(false);
         Anim.SetBool("IsDashing", false);

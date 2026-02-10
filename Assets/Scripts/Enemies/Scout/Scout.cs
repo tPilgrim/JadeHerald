@@ -75,11 +75,11 @@ public class Scout : MonoBehaviour
         {
             if(DashDirection == true)
             {
-                EnemyRb.velocity = new Vector2(-DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-DashSpeed, 0f);
             }
             else
             {
-                EnemyRb.velocity = new Vector2(DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(DashSpeed, 0f);
             }
         }
 
@@ -92,7 +92,7 @@ public class Scout : MonoBehaviour
             CanMove = true;
         }
 
-        if (EnemyRb.velocity.y < 0)
+        if (EnemyRb.linearVelocity.y < 0)
         {
             Anim.SetBool("IsRunning", false);
         }
@@ -160,7 +160,7 @@ public class Scout : MonoBehaviour
             Footsteps.Stop();
         }
 
-        if (CanCombat == true && IsDashing == false && EnemyRb.velocity.y >= 0 && IsJumping == false && JumpAgain == true)
+        if (CanCombat == true && IsDashing == false && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true)
         {
             Speed = FollowSpeed;
             Anim.SetBool("IsRunning", true);
@@ -179,7 +179,7 @@ public class Scout : MonoBehaviour
                 Speed = FollowSpeed;
             }
 
-            EnemyRb.velocity = new Vector2(Speed, 0f);
+            EnemyRb.linearVelocity = new Vector2(Speed, 0f);
         }
     }
 
@@ -199,7 +199,7 @@ public class Scout : MonoBehaviour
             JumpSpeed = Mathf.Abs(JumpSpeed);
         }
 
-        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.velocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
+        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.linearVelocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
         {
             StartCoroutine(JumpStart());
         }
@@ -219,16 +219,16 @@ public class Scout : MonoBehaviour
         JumpAgain = false;
         IsJumping = true;
         Anim.SetBool("IsJumping", true);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(0.4f);
         AudioManager.PlayOneShot(JumpSound, 0.6f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, JumpForce);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, JumpForce);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.25f);
-        EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         IsJumping = false;
         Anim.SetBool("IsJumping", false);
     }

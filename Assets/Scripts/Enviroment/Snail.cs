@@ -76,26 +76,31 @@ public class Snail : MonoBehaviour
             ShouldTurn = false;
         }
     }
-    
-    public void Hide(bool ShouldHide)
+
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if(ShouldHide == true)
+        if (other.gameObject.tag == "Player")
         {
-            CanMove = false;
             Anim.SetBool("IsHiding", true);
-        }
-        else
-        {
-            //CanMove = true;
-            Anim.SetBool("IsHiding", false);
-            Anim.SetBool("IsOpening", true);
+            CanMove = false;
         }
     }
 
-    void StartMoveing()
+    private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Player")
+        {
+            StartCoroutine(Wait());
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1f);
+        Anim.SetBool("IsHiding", false);
+        yield return new WaitForSeconds(0.4f);
         CanMove = true;
-        Anim.SetBool("IsOpening", false);
     }
 
     void Flip()
@@ -121,22 +126,22 @@ public class Snail : MonoBehaviour
         {
             if(CanMove == true && Stop == false)
             {
-                SnailRb.velocity = new Vector2(Speed, 0);
+                SnailRb.linearVelocity = new Vector2(Speed, 0);
             }
             else
             {
-                SnailRb.velocity = new Vector2(0, 0);
+                SnailRb.linearVelocity = new Vector2(0, 0);
             }
         }
         else
         {
             if(CanMove == true && Stop == false)
             {
-                SnailRb.velocity = new Vector2(Speed * (-1), 0);
+                SnailRb.linearVelocity = new Vector2(Speed * (-1), 0);
             }
             else
             {
-                SnailRb.velocity = new Vector2(0, 0);
+                SnailRb.linearVelocity = new Vector2(0, 0);
             }
         }
     }

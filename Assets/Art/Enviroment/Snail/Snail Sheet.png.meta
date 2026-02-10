@@ -97,7 +97,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 1
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,7 +110,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,7 +123,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,7 +136,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -153,216 +153,227 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snail Hide 1
+      name: Snail Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 14
+        y: 16
         width: 16
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4e3a75da19bed860800000000000000
-      internalID: 7556680749676117582
+      spriteID: c677b31c7e372bd488bffdd0822f7b25
+      internalID: -1972229821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Hide 2
+      name: Snail Sheet_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 14
+        y: 16
         width: 16
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09b11b82cd89757a0800000000000000
-      internalID: -6388469475058836592
+      spriteID: 1466bf1bd5540fb478d162f8d9b970f8
+      internalID: -1400724490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Hide 3
+      name: Snail Sheet_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 14
+        y: 16
         width: 16
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41558d23da7d44960800000000000000
-      internalID: 7585424811281110292
+      spriteID: 80d5a8a2d43818046be1bcee32bbee57
+      internalID: 991357256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Hide 4
+      name: Snail Sheet_3
       rect:
         serializedVersion: 2
         x: 48
-        y: 14
+        y: 16
         width: 16
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d7ae8caba4746ae0800000000000000
-      internalID: -1556991290480089129
+      spriteID: d4c3a2325ee5e7f43b38d8d5d6b4c1d9
+      internalID: -1300722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Hide 5
+      name: Snail Sheet_4
       rect:
         serializedVersion: 2
         x: 64
-        y: 14
+        y: 16
         width: 16
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b472fe6cd23319d00800000000000000
-      internalID: 977618865820215115
+      spriteID: ff90cd42109f21c4ca70ec1fd207a08e
+      internalID: 790149123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Open 1
+      name: Snail Sheet_5
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cb07962c07afc090800000000000000
-      internalID: -8012001541439943735
+      spriteID: 79b34feaff22c3a4db22946e8236a97d
+      internalID: 387649421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Open 2
+      name: Snail Sheet_6
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d99222c5ad93624e0800000000000000
-      internalID: -2006852973935580771
+      spriteID: dfe62c324e401ac46a0318b5b8edf89e
+      internalID: 1432329656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Open 3
+      name: Snail Sheet_7
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91a15810442692610800000000000000
-      internalID: 1596915587102349849
+      spriteID: 7abe7a19ce2c8f742b67bf0bcda3c48c
+      internalID: 336508953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Open 4
+      name: Snail Sheet_8
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba28cc6c6628dede0800000000000000
-      internalID: -1302241339306638677
+      spriteID: 457a3c6496d39dd44bf1386f2268a7ed
+      internalID: -1913776645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail Open 5
+      name: Snail Sheet_9
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
-        height: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 351f5c24b828b9360800000000000000
-      internalID: 7177473965777350995
+      spriteID: 9f7d8e8154200fe43a381da91ebbbc38
+      internalID: -276025338
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -372,17 +383,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Snail Hide 1: 7556680749676117582
-      Snail Hide 2: -6388469475058836592
-      Snail Hide 3: 7585424811281110292
-      Snail Hide 4: -1556991290480089129
-      Snail Hide 5: 977618865820215115
-      Snail Open 1: -8012001541439943735
-      Snail Open 2: -2006852973935580771
-      Snail Open 3: 1596915587102349849
-      Snail Open 4: -1302241339306638677
-      Snail Open 5: 7177473965777350995
+      Snail Sheet_0: -1972229821
+      Snail Sheet_1: -1400724490
+      Snail Sheet_2: 991357256
+      Snail Sheet_3: -1300722
+      Snail Sheet_4: 790149123
+      Snail Sheet_5: 387649421
+      Snail Sheet_6: 1432329656
+      Snail Sheet_7: 336508953
+      Snail Sheet_8: -1913776645
+      Snail Sheet_9: -276025338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

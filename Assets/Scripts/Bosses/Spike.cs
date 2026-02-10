@@ -33,7 +33,7 @@ public class Spike : MonoBehaviour
     {
         if (Attack == true)
         {
-            SpikeRb.velocity = Direction * Speed * Time.deltaTime * 100;
+            SpikeRb.linearVelocity = Direction * Speed * Time.deltaTime * 100;
         }
     }
 

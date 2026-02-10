@@ -56,7 +56,7 @@ public class Phosp : MonoBehaviour
             StopCoroutine(Attack());
             StopCoroutine(Spell());
             StopCoroutine(Dash());
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
             AttackPoint.SetActive(false);
         }
     }
@@ -172,16 +172,16 @@ public class Phosp : MonoBehaviour
 
             if (Player.position.x + 0.1 > transform.position.x && Player.position.x - 0.1 < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(0f, 0f);
+                EnemyRb.linearVelocity = new Vector2(0f, 0f);
                 Anim.SetBool("IsRunning", false);
             }
             else if (Player.transform.position.x < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(-Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-Speed, 0f);
             }
             else if (Player.transform.position.x > transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(Speed, 0f);
+                EnemyRb.linearVelocity = new Vector2(Speed, 0f);
             }
         }
         else
@@ -191,18 +191,18 @@ public class Phosp : MonoBehaviour
 
         if(IsAttacking == true)
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
         }
 
         if(IsDashing == true)
         {
             if (Player.transform.position.x < transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(DashSpeed, 0f);
             }
             else if (Player.transform.position.x > transform.position.x)
             {
-                EnemyRb.velocity = new Vector2(-DashSpeed, 0f);
+                EnemyRb.linearVelocity = new Vector2(-DashSpeed, 0f);
             }
         }
     }

@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour
 
     void FixedUpdate()
     {
-        ArrowRb.velocity = transform.right * -Speed * Time.deltaTime * 100;
+        ArrowRb.linearVelocity = transform.right * -Speed * Time.deltaTime * 100;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

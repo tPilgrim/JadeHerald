@@ -57,7 +57,7 @@ public class Sentinel : MonoBehaviour
         Sleep();
         Jump();
 
-        if (!this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sleep") && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.velocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && IsJumping == false)
+        if (!this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sleep") && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && IsJumping == false)
         {
             Turn();
         }
@@ -71,7 +71,7 @@ public class Sentinel : MonoBehaviour
             CanMove = true;
         }
 
-        if (EnemyRb.velocity.y < 0)
+        if (EnemyRb.linearVelocity.y < 0)
         {
             Anim.SetBool("IsRunning", false);
         }
@@ -90,7 +90,6 @@ public class Sentinel : MonoBehaviour
             CanCombat = EnterCombat;
             Anim.SetBool("IsSleeping", false);
             IsSleeping = false;
-            Anim.SetTrigger("IsAwake");
             JumpCheck.SetActive(true);
             SleepTimeCounter = SleepTime;
             StartCounting = false;
@@ -142,7 +141,11 @@ public class Sentinel : MonoBehaviour
             Footsteps.Stop();
         }
 
-        if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.velocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
+        if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Asleep") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Awake"))
+        {
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
+        }
+        else if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
         {
             Speed = FollowSpeed;
             Anim.SetBool("IsRunning", true);
@@ -161,7 +164,7 @@ public class Sentinel : MonoBehaviour
                 Speed = FollowSpeed;
             }
 
-            EnemyRb.velocity = new Vector2(Speed, 0f);
+            EnemyRb.linearVelocity = new Vector2(Speed, 0f);
         }
     }
 
@@ -181,7 +184,7 @@ public class Sentinel : MonoBehaviour
             JumpSpeed = Mathf.Abs(JumpSpeed);
         }
 
-        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.velocity.y >= 0)
+        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.linearVelocity.y >= 0)
         {
             StartCoroutine(JumpStart());
         }
@@ -201,16 +204,16 @@ public class Sentinel : MonoBehaviour
         JumpAgain = false;
         IsJumping = true;
         Anim.SetBool("IsJumping", true);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(0.4f);
         AudioManager.PlayOneShot(JumpSound, 0.6f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, JumpForce);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, JumpForce);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.25f);
-        EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         IsJumping = false;
         Anim.SetBool("IsJumping", false);
     }
@@ -226,7 +229,7 @@ public class Sentinel : MonoBehaviour
         {
             Anim.SetBool("IsSleeping", true);
             IsSleeping = true;
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
         }
     }
 
@@ -234,9 +237,9 @@ public class Sentinel : MonoBehaviour
     {
         Stop = CanAttack;
 
-        if (CanAttack == true && IsJumping == false && EnemyRb.velocity.y == 0 && NextAttack == true && IsAttacking == false)
+        if (CanAttack == true && IsJumping == false && EnemyRb.linearVelocity.y == 0 && NextAttack == true && IsAttacking == false)
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
             StartCoroutine(Attack());
         }
     }

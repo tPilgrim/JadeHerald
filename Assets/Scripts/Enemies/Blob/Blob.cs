@@ -44,7 +44,7 @@ public class Blob : MonoBehaviour
         Sleep();
         Jump();
 
-        if (!this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Sleep") && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Attack") && EnemyRb.velocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Death") && IsJumping == false)
+        if (!this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Sleep") && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Attack") && EnemyRb.linearVelocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Death") && IsJumping == false)
         {
             Turn();
         }
@@ -58,7 +58,7 @@ public class Blob : MonoBehaviour
             CanMove = true;
         }
 
-        if (EnemyRb.velocity.y < 0)
+        if (EnemyRb.linearVelocity.y < 0)
         {
             Anim.SetBool("IsRunning", false);
         }
@@ -106,7 +106,7 @@ public class Blob : MonoBehaviour
 
     void Follow()
     {
-        if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Attack") && EnemyRb.velocity.y >= 0 && IsJumping == false && JumpAgain == true)
+        if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Sentinel Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true)
         {
             Speed = FollowSpeed;
             Anim.SetBool("IsRunning", true);
@@ -125,7 +125,7 @@ public class Blob : MonoBehaviour
                 Speed = FollowSpeed;
             }
 
-            EnemyRb.velocity = new Vector2(Speed, 0f);
+            EnemyRb.linearVelocity = new Vector2(Speed, 0f);
         }
     }
 
@@ -145,7 +145,7 @@ public class Blob : MonoBehaviour
             JumpSpeed = Mathf.Abs(JumpSpeed);
         }
 
-        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.velocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
+        if (CanJump == true && JumpAgain == true && IsJumping == false && CanMove == true && EnemyRb.linearVelocity.y >= 0 && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Scout Dash"))
         {
             StartCoroutine(JumpStart());
         }
@@ -165,13 +165,13 @@ public class Blob : MonoBehaviour
         JumpAgain = false;
         IsJumping = true;
         Anim.SetBool("IsJumping", true);
-        EnemyRb.velocity = new Vector2(0f, 0f);
+        EnemyRb.linearVelocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(0.4f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, JumpForce);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, JumpForce);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(JumpSpeed, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(JumpSpeed, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.3f);
-        EnemyRb.velocity = new Vector2(0f, EnemyRb.velocity.y);
+        EnemyRb.linearVelocity = new Vector2(0f, EnemyRb.linearVelocity.y);
         yield return new WaitForSeconds(0.1f);
         IsJumping = false;
         Anim.SetBool("IsJumping", false);
@@ -192,9 +192,9 @@ public class Blob : MonoBehaviour
 
     public void StartAttack(bool CanAttack)
     {
-        if (CanAttack == true && IsJumping == false && EnemyRb.velocity.y == 0)
+        if (CanAttack == true && IsJumping == false && EnemyRb.linearVelocity.y == 0)
         {
-            EnemyRb.velocity = new Vector2(0f, 0f);
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
             Anim.SetBool("IsAttacking", true);
         }
     }

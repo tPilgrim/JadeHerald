@@ -36,6 +36,7 @@ public class Crimson : MonoBehaviour
             }
             Anim.SetTrigger("LightUp");
             Player.GetComponent<PlayerController>().CheckPoint(transform.position.x, transform.position.y);
+            Player.GetComponent<PlayerController>().StartSit();
             PlayerPrefs.SetInt(gameObject.transform.name, 1);
         }
     }
