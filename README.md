@@ -1,4 +1,4 @@
-# The Herald – 2D Metroidvania
+# The Herald - 2D Metroidvania
 
 **The Herald** is a dark 2D Metroidvania set deep beneath the earth in a forgotten, decaying mine. The world is illuminated only by glowing mushrooms, bioluminescent plants, and dying lanterns, creating an oppressive and atmospheric underground environment.
 
