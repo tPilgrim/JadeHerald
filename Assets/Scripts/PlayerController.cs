@@ -616,15 +616,8 @@ public class PlayerController : MonoBehaviour
                 Anim.SetBool("JumpAttacking", false);
                 Anim.SetBool("JumpUpAttacking", false);
 
-                if (CanChargeAttack == true && FirstChargeAttack == true)
-                {
-                    Anim.SetBool("ChargedAttack", true);
-                }
-                else
-                {
-                    AttackNumber++;
-                    Anim.SetInteger("AttackNumber", AttackNumber);
-                }
+                AttackNumber++;
+                Anim.SetInteger("AttackNumber", AttackNumber);
             }
             else
             {
@@ -671,6 +664,7 @@ public class PlayerController : MonoBehaviour
         Anim.SetBool("IsAttacking", false);
         Anim.SetBool("JumpAttacking", false);
         Anim.SetBool("JumpUpAttacking", false);
+        Anim.SetBool("ChargedAttack", false);
 
         if (IsJumpAttacking)
         {
@@ -692,6 +686,12 @@ public class PlayerController : MonoBehaviour
             if (Input.GetAxis("Vertical") > 0f)
             {
                 Anim.SetBool("IsUpAttacking", IsAttacking);
+            }
+            else if (CanChargeAttack && FirstChargeAttack)
+            {
+                Anim.SetBool("ChargedAttack", IsAttacking);
+                FirstChargeAttack = false;
+                AttackNumber = 0;
             }
             else
             {

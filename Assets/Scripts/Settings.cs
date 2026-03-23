@@ -11,7 +11,6 @@ public class Settings : MonoBehaviour
     {
         Particles = GameObject.Find("Particles");
         Light = GameObject.Find("Mushroom Light");
-        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame

@@ -90,7 +90,6 @@ public class Sentinel : MonoBehaviour
             CanCombat = EnterCombat;
             Anim.SetBool("IsSleeping", false);
             IsSleeping = false;
-            Anim.SetTrigger("IsAwake");
             JumpCheck.SetActive(true);
             SleepTimeCounter = SleepTime;
             StartCounting = false;
@@ -132,9 +131,9 @@ public class Sentinel : MonoBehaviour
 
     void Follow()
     {
-        if(this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
+        if (this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
         {
-            if(!Footsteps.isPlaying)
+            if (!Footsteps.isPlaying)
                 Footsteps.Play();
         }
         else
@@ -142,7 +141,11 @@ public class Sentinel : MonoBehaviour
             Footsteps.Stop();
         }
 
-        if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
+        if (this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Asleep") || this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Awake"))
+        {
+            EnemyRb.linearVelocity = new Vector2(0f, 0f);
+        }
+        else if (CanCombat == true && !this.Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && EnemyRb.linearVelocity.y >= 0 && IsJumping == false && JumpAgain == true && IsSleeping == false)
         {
             Speed = FollowSpeed;
             Anim.SetBool("IsRunning", true);
@@ -271,9 +274,9 @@ public class Sentinel : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground")
         {
-            if(!FirstCollision)
+            if (!FirstCollision)
             {
                 AudioManager.PlayOneShot(LandSound, 0.4f);
             }

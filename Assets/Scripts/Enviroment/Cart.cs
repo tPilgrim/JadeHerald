@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cart : MonoBehaviour
 {
-    private Rigidbody2D EnemyRb;
+    private Rigidbody2D CartRb;
 
     public PhysicsMaterial2D LowFriction;
     public PhysicsMaterial2D HighFriction;
@@ -15,14 +15,42 @@ public class Cart : MonoBehaviour
 
     private Vector3 Rotation;
 
+    private Transform PlayerTransform;
+    public float Speed;
+    private int cartLayer;
+    private int enemyLayer;
+
     void Start()
     {
-        EnemyRb = GetComponent<Rigidbody2D>();
+        CartRb = GetComponent<Rigidbody2D>();
         AudioManager = GetComponent<AudioSource>();
+        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        cartLayer = LayerMask.NameToLayer("Cart");
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+    }
+
+    void FixedUpdate()
+    {
+        if(CartRb.linearVelocity.y < -1f)
+        {
+            Physics2D.IgnoreLayerCollision(cartLayer, enemyLayer, false);
+        }
+        else
+        {
+            StartCoroutine(ActivateCollision());
+        }
+    }
+
+    IEnumerator ActivateCollision()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Physics2D.IgnoreLayerCollision(cartLayer, enemyLayer, true);
     }
 
     void Update()
     {
+        Debug.Log(CartRb.linearVelocity.y < -1f);
         Rotation = transform.localEulerAngles;
 
         if(IsUpright )
@@ -38,15 +66,15 @@ public class Cart : MonoBehaviour
             AudioManager.Play();
 
 
-        if (Mathf.Abs(EnemyRb.linearVelocity.x) > 0.1f && EnemyRb.linearVelocity.y >= -0.5f)
+        if (Mathf.Abs(CartRb.linearVelocity.x) > 0.1f && CartRb.linearVelocity.y >= -0.5f)
         {
             if (IsUpright)
             {
-                AudioManager.volume = Mathf.Abs(EnemyRb.linearVelocity.x) / 10;
+                AudioManager.volume = Mathf.Abs(CartRb.linearVelocity.x) / 10;
             }
             else
             {
-                AudioManager.volume = Mathf.Abs(EnemyRb.linearVelocity.x) / 5;
+                AudioManager.volume = Mathf.Abs(CartRb.linearVelocity.x) / 5;
             }
         }
         else
@@ -55,11 +83,36 @@ public class Cart : MonoBehaviour
         }
     }
 
+    private void Slide()
+    {
+        float direction = transform.position.x - PlayerTransform.position.x;
+
+        direction = Mathf.Sign(direction);
+
+        CartRb.AddForce(new Vector2(direction * Speed, 0f), ForceMode2D.Impulse);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Attack")
+        {
+            Slide();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyHealth>()?.TakeDamage(999);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag == "Rail" && (Rotation.z > 350 || Rotation.z <10))
         {
-            EnemyRb.sharedMaterial = LowFriction;
+            CartRb.sharedMaterial = LowFriction;
             IsUpright = true;
         }
     }
@@ -68,7 +121,7 @@ public class Cart : MonoBehaviour
     {
         if (other.gameObject.tag == "Rail")
         {
-            EnemyRb.sharedMaterial = HighFriction;
+            CartRb.sharedMaterial = HighFriction;
             IsUpright = false;
         }
     }

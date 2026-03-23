@@ -757,10 +757,10 @@ MonoBehaviour:
   ChargedSlash: {fileID: 8300000, guid: 5be702960557dcc4cad0c57aad1d4f7c, type: 3}
   ShieldHit: {fileID: 8300000, guid: 25f95af7a85333047bc9f616d1f160f9, type: 3}
   PlayerHit: {fileID: 8300000, guid: df0d644b4050a134f8b664685d508c6a, type: 3}
-  LandSound1: {fileID: 8300000, guid: e60a4e2f879fae7499f79c2031f3cafd, type: 3}
-  LandSound2: {fileID: 8300000, guid: 96dbd42eb3ca7434e80ca35692861f46, type: 3}
-  LandSound3: {fileID: 8300000, guid: 4eaaf32a88fc4264bb4198add98830aa, type: 3}
-  JumpSound: {fileID: 8300000, guid: 79b273578a9c1dd47ba77dd3c163c52e, type: 3}
+  LandSound1: {fileID: 8300000, guid: 8c091fd4968bf73488ed88cbba23c5db, type: 3}
+  LandSound2: {fileID: 8300000, guid: f9df8a71ba82e6d468cb8618ce51d2cb, type: 3}
+  LandSound3: {fileID: 8300000, guid: ca83af17ab051e543898fdd8d4f2a51d, type: 3}
+  JumpSound: {fileID: 8300000, guid: 7c7af540bd831c54ea3eed7e170135b1, type: 3}
   DashSound: {fileID: 8300000, guid: 8100a04f2a7fa48409fdd33238fd87f8, type: 3}
   RegenSound: {fileID: 8300000, guid: 42160e6bed9d91c4d8295d49000882b9, type: 3}
   DeathSound: {fileID: 8300000, guid: efac62c36a63cf344aca0b6e3f66a024, type: 3}
